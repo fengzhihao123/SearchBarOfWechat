@@ -26,6 +26,7 @@ static CGFloat viewOffset = 64;
     self.view.backgroundColor = [UIColor whiteColor];
     self.titleArray = [NSMutableArray arrayWithObjects:@"friend",@"article",@"number", nil];
     [self setupSearchBar];
+    [self setupPopView];
 }
 
 - (void)setupSearchBar{
@@ -42,15 +43,15 @@ static CGFloat viewOffset = 64;
 #pragma mark -UISearchBarDelegate
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
     [UIView animateWithDuration:0.5 animations:^{
-        
        //1.
         self.navigationController.navigationBar.transform = CGAffineTransformMakeTranslation(0, -viewOffset);
         self.searchBar.transform = CGAffineTransformMakeTranslation(0, -viewOffset);
+        
         //2.
         self.searchBar.showsCancelButton = YES;
         [self setupCancelButton];
-        //3.
-        [self setupPopView];
+        
+        [self.popView showThePopViewWithArray:self.titleArray];
     }];
 }
 
@@ -58,7 +59,6 @@ static CGFloat viewOffset = 64;
     self.popView = [[FZHPopView alloc]init];
     self.popView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - 64);
     self.popView.fzhPopViewDelegate = self;
-    [self.popView showThePopViewWithArray:self.titleArray];
     [self.view addSubview:self.popView];
 }
 
@@ -83,13 +83,15 @@ static CGFloat viewOffset = 64;
         //3.
         [self.popView dismissThePopView];
     }];
-    self.searchBar.placeholder = @"搜索";
     
+    self.searchBar.placeholder = @"搜索";
+    [self.searchBar setImage:[UIImage imageNamed:@"search"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
 }
 
 #pragma mark -FZHPopViewDelegate
 -(void)getTheButtonTitleWithButton:(UIButton *)button{
     self.searchBar.placeholder = button.titleLabel.text;
+    [self.searchBar setImage:[UIImage imageNamed:@"common"] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     [self.popView dismissThePopView];
 }
 

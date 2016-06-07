@@ -505,6 +505,7 @@
 				D62F137C1D03210500ED3508 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D62F137D1D03210500ED3508 /* Build configuration list for PBXNativeTarget "FZHSearchBarOfWechatTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +514,7 @@
 				D62F137F1D03210500ED3508 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D62F13801D03210500ED3508 /* Build configuration list for PBXNativeTarget "FZHSearchBarOfWechatUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +523,7 @@
 				D62F13821D03210500ED3508 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

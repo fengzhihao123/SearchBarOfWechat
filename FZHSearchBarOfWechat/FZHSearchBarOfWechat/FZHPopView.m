@@ -66,10 +66,9 @@
 - (void)showThePopViewWithArray:(NSMutableArray *)array{
    
     self.dataSource = array;
-    
+    [self.tableView reloadData];
     //1.执行动画
     [UIView animateWithDuration:self.animationTime animations:^{
-//        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
         self.transform = CGAffineTransformMakeTranslation(0, -(SCREEN_HEIGHT - 64));
 
     }];
@@ -79,10 +78,9 @@
 - (void)dismissThePopView{
     
     [UIView animateWithDuration:self.animationTime animations:^{
-//        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
         self.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
-        [self removeFromSuperview];
+//        [self removeFromSuperview];
     }];
     
 }
